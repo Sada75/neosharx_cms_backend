@@ -12,9 +12,6 @@ from robosharx.api import RoboSharxArticleViewSet
 from technews.api import TechNewsViewSet
 
 
-
-
-
 router = DefaultRouter()
 router.register(r"talks", NeosharxTalkViewSet, basename="talks")
 router.register(r"startup-stories", StartupStoryViewSet, basename="startup-stories")
@@ -23,8 +20,6 @@ router.register(r"projects", NeoProjectViewSet, basename="projects")
 router.register(r"hackathons", SharxathonViewSet, basename="hackathons")
 router.register(r"robotics-news", RoboSharxArticleViewSet, basename="robotics-news")
 router.register(r"tech-news", TechNewsViewSet, basename="tech-news")
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -16,11 +16,13 @@ class BaseContent(models.Model):
     content = models.TextField()
 
     cover_image = models.ImageField(
-        upload_to='covers/',
+        # upload_to='covers/',
         max_length = 500,
         blank=True,
         null=True
     )
+
+    
 
     status = models.CharField(
         max_length=20,
