@@ -17,6 +17,7 @@ class BaseContent(models.Model):
 
     cover_image = models.ImageField(
         upload_to='covers/',
+        max_length = 500,
         blank=True,
         null=True
     )
