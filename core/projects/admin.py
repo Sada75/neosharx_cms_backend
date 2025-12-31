@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import NeoProject
-
+from common.storage import upload_to_supabase
 
 @admin.register(NeoProject)
 class NeoProjectAdmin(admin.ModelAdmin):
@@ -58,3 +58,11 @@ class NeoProjectAdmin(admin.ModelAdmin):
             )
         }),
     )
+
+    def save_model(self, request, obj, form, change):
+        if "cover_image" in request.FILES:
+            obj.cover_image = upload_to_supabase(
+                request.FILES["cover_image"],
+                folder="neoprojects"
+            )
+        super().save_model(request, obj, form, change)
